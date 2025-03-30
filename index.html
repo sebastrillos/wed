@@ -3,17 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ing sebastian</title>
+    <title>Formulario de Nombre y Edad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        video {
+            margin-top: 20px;
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-    <fieldset style="color: blueviolet;">
-        <h1><i>¿consegui novia mk?</i></h1>
-    </fieldset>
-    <p style="color: rgb(48, 6, 86); "> -con mucho apresio pana</p>
-    <iframe width="600" height="350" src="https://www.youtube.com/embed/Kk-U-H7d1W4?si=DOt6RebffcMGyTUf" title="YouTube video player" frameborder="50" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <rp></rp>
-    <p style="color: rgb(95, 7, 7);">-una cancion pa que se relage papi</p>
-    <iframe width="600" height="350" src="https://www.youtube.com/embed/I-cOD2x-qBs?si=ZPHZVLmLgAVvZ5Tb" title="YouTube video player" frameborder="50" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <p style="color: rgb(204, 178, 145);">¡GOOD BYE!</p>
+    <div class="container">
+        <h2>Formulario</h2>
+        <p>Ingresa tu nombre y edad:</p>
+        <form id="form">
+            <input type="text" id="nombre" placeholder="Tu nombre" required><br>
+            <input type="number" id="edad" placeholder="Tu edad" required><br>
+            <button type="submit">Enviar</button>
+        </form>
+
+        <div id="video-container" style="display:none;">
+            <h3>Gracias por enviar tus datos, ahora disfruta del video:</h3>
+            <video controls>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/AApTHp8SUps?si=q2MjCJ4RUunpkiTZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  
+                Tu navegador no soporta el formato de video.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita el comportamiento por defecto del formulario
+            
+            var nombre = document.getElementById("nombre").value;
+            var edad = document.getElementById("edad").value;
+
+            if (nombre && edad) {
+                // Muestra el video después de ingresar los datos
+                document.getElementById("form").style.display = "none"; // Oculta el formulario
+                document.getElementById("video-container").style.display = "block"; // Muestra el video
+            }
+        });
+    </script>
 </body>
 </html>
